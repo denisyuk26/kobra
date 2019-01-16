@@ -1,0 +1,64 @@
+#snakeWrap {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+
+}
+
+#snake {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 80vh;
+
+}
+.show {
+  display: block;
+}
+.hide {
+  visibility: hidden;
+}
+#grid {
+  transition: all ease 2s;
+  width: 570px;
+  padding-left: 10px;
+  height: auto;
+  border: 2px solid gold
+}
+.cell {
+  width: 30px;
+  height: 30px;
+  /* border: 0.6px solid black; */
+  display: inline-block;
+  padding: 0;
+  margin: -2px 0px;
+}
+.apple {
+  background-color: red;
+  /* font-size: 20px; */
+
+}
+/* .apple::before {
+  content: '🍎';
+  position: absolute;
+  width: 30px;
+} */
+.apple > span {
+  position: absolute;
+  width: 30px;
+}
+
+.tail {
+  background-color: green;
+}
+
+.head {
+  background-color: green;
+}
+
+/* .head::before {
+  content: '🐍';
+  font-size: 35px;
+  position: absolute;
+} */
