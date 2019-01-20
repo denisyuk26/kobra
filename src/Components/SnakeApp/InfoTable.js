@@ -6,21 +6,35 @@ export default class InfoTable extends Component {
   constructor(props){
     super(props);
     this.state = {
-        buttonsMode:[{name:'easy', speed:900}, {name:'medium', speed: 600}, {name:'hard', speed:300}],
-        showButon: true,
+        buttonsMode:[
+          {name:'easy', speed:900},
+          {name:'medium', speed: 600},
+          {name:'hard', speed:300}
+        ],
+        showButon: false,
         difficulty: '',
 
     }
   }
-  gameStart= () => {
+  componentDidMount = () => {
+      document.getElementById('showButtons').addEventListener('mouseover', this.showButtons)
+  }
+  showButtons = (e) => {
+    if(e.target.dataset.id === 'showButon'){
+      console.log(this.state.showButon)
+      return this.setState({
+        showButon: true
+      })
+    }
 
+  }
+  gameStart= () => {
     this.setState({
       showButon: !this.state.showButon,
     })
     return this.props.gameOver(false)
   }
   changeSpeed = (e) => {
-    console.log(this.props.start)
       this.state.buttonsMode.map(item=> {
         if(item.name === e.target.name) {
           return this.props.changeSpeed(item.speed)
@@ -34,40 +48,43 @@ export default class InfoTable extends Component {
   }
   render(){
     return (
-      <div>
-      <h1>Score: {this.props.score}</h1>
-      <h1>Max: {this.props.maxScore}</h1>
-      <h1>Mode: { this.state.difficulty === '' ? 'Easy' : this.state.difficulty.replace(this.state.difficulty[0], this.state.difficulty[0].toUpperCase())}</h1>
+      <div  id='showButtons' className="wraper">
+        <div className='info'>
+        <h3>Score: {this.props.score}</h3>
+        <h3>Max: {this.props.maxScore}</h3>
+        <h3   data-id='showButon'>Speed: { this.state.difficulty === '' ? 'Easy' : this.state.difficulty.replace(this.state.difficulty[0], this.state.difficulty[0].toUpperCase())}</h3>
 
-      <div id='buttons'>
-
-
-        <div className='mode'>
-
-          {
-            this.state.buttonsMode.map(item=>{
-
-
-              return (
-                !this.props.start
-                ?
-                <button
-                key={item.speed}  id={item.name}
-                name={item.name} onClick={this.changeSpeed}
-
-                >
-                {item.name.replace(item.name[0], item.name[0].toUpperCase())}
-                </button>
-                : ''
-              )
-            })
-          }
 
         </div>
 
-      </div>
+        {
+           !this.state.showButtons
+           ?  <div id='buttons' className='mode'>
+                 {
+                   this.state.buttonsMode.map(item=>{
+                     return (
+                       (this.state.showButon && !this.props.start)
+                       ?
+                       <button
+                       key={item.speed}  id={item.name}
+                       name={item.name} onClick={this.changeSpeed}
+                       className='button_speed'
+
+                       >
+                       {item.name.replace(item.name[0], item.name[0].toUpperCase())}
+                       </button>
+                       : ''
+                     )
+                   })
+                 }
+
+             </div>
+             : ''
+        }
+
 
       </div>
+
     )
   }
 
