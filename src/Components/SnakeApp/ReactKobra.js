@@ -218,7 +218,7 @@ export default class SnakeGame extends Component {
               <button onClick={this.startAgain} id='startAgain'>Play Again</button>
             </div>
           )
-          : <div>
+          : <div id='gridWrap'>
 
               <section id='grid'>
                     {
@@ -238,13 +238,22 @@ export default class SnakeGame extends Component {
                     }
 
                 </section>
-                {
-                  playing
-                  ? ''
-                  : <button onClick={this.gameStart} id='startAgain' >Start game</button>
-                }
+                <div >
+                  {
+                    playing || gameOver
+                    ? ''
+                    : (
+                      <div className='modal'>
+                        <button onClick={this.gameStart} id='start' >Start game</button>
+                      </div>
+                    )
+                  }
+                </div>
+
             </div>
+
         }
+
       </div>
     )
 
