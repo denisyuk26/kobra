@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/kobra/precache-manifest.b67b78517dffcf30cab351a68bf2baeb.js"
+  "/kobra/precache-manifest.1e379e0f1af6d35413258741c76db264.js"
 );
 
 workbox.clientsClaim();
