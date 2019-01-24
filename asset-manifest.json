@@ -1,7 +1,7 @@
 {
   "main.css": "/kobra/static/css/main.7da49939.chunk.css",
-  "main.js": "/kobra/static/js/main.dea02301.chunk.js",
-  "main.js.map": "/kobra/static/js/main.dea02301.chunk.js.map",
+  "main.js": "/kobra/static/js/main.ed5edaa1.chunk.js",
+  "main.js.map": "/kobra/static/js/main.ed5edaa1.chunk.js.map",
   "static/js/1.3e6532fd.chunk.js": "/kobra/static/js/1.3e6532fd.chunk.js",
   "static/js/1.3e6532fd.chunk.js.map": "/kobra/static/js/1.3e6532fd.chunk.js.map",
   "runtime~main.js": "/kobra/static/js/runtime~main.f23f8b9c.js",
@@ -9,6 +9,6 @@
   "static/css/main.7da49939.chunk.css.map": "/kobra/static/css/main.7da49939.chunk.css.map",
   "static/media/style.scss": "/kobra/static/media/snake.2a9daedd.png",
   "index.html": "/kobra/index.html",
-  "precache-manifest.9b2fbb45a99e9fb07b9e4b3beea59cf2.js": "/kobra/precache-manifest.9b2fbb45a99e9fb07b9e4b3beea59cf2.js",
+  "precache-manifest.09435a29f4050d52c79c0a3f30eba18c.js": "/kobra/precache-manifest.09435a29f4050d52c79c0a3f30eba18c.js",
   "service-worker.js": "/kobra/service-worker.js"
 }
