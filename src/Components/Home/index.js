@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import Greeting from './Greeting'
-import ShortInfo from './ShortInfo'
 
 export default class Home extends Component {
-  constructor(props){
+  constructor (props) {
     super(props)
+    this.state = {
+
+    }
   }
 
+  componentDidMount=()=> {
+
+  }
+  componentWillUnmount =()=> {
+    
+  }
   render(){
       return (
         <div>
-        <Greeting id='greeting'></Greeting>
-
-
+        <Greeting moun = {this.props.unmount} id='greeting'></Greeting>
         </div>
       )
   }

@@ -1,18 +1,24 @@
 #snakeWrap {
   width: 100vw;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: baseline;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 85vh;
 
 }
-
+.apple-info {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+}
 #snake {
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 70%;
-  height: 80vh;
+  margin: 20px;
+  width: 90vw;
+  outline: none;
 
 }
 .show {
@@ -61,8 +67,9 @@ margin-bottom: 10px;
 .cell {
   width: 30px;
   height: 30px;
-  background-color: #f6b93d;
-  background-image: url('./grass.png');
+  /* background-color: #f6b93d; */
+  background-image: url('./img/grass.png');
+
   /* background-color: green; */
   background-position: bottom;
   background-size: cover;
@@ -72,41 +79,53 @@ margin-bottom: 10px;
   margin: -2px 0px;
 }
 .apple {
-  background-image: url('./apple.png');
-  /* background-color: green; */
+  background-image: url('./img/apple.png');
+  background-color: #529d26;
   background-position: bottom;
   background-size: cover;
   /* font-size: 20px; */
 
 }
+.apple-i {
+  width: 20px;
+  background-image: url('./img/apple.png');
+  background-position: bottom;
+  background-size: cover;
 
-/* .apple::before {
-  content: '🍎';
-  position: absolute;
-  width: 30px;
-} */
-.apple > span {
-  position: absolute;
-  width: 30px;
 }
-.rotate0 {
-  transform: rotate(90deg);
+.appleshow {
+  display: flex;
+  flex-direction: row;
+  min-height: 20px;
+  height: 100%;
 }
-.rotate90{
-  transform: rotate(90deg);
+.speedBlock {
+  height: 25px;
+  max-width: 150px;
+  width: 100%;
+}
+
+.scoreBlock {
+  flex-direction: column;
+  width: 65%;
+  display: flex;
+  margin-top: 35px;
+}
+
+.apple-i {
+
 }
 
 .tail {
-  background-image: url('./tail.png');
-  /* background-color: green; */
+  background-image: url('./img/tail.png');
+  background-color: #529d26;
   background-position: bottom;
   background-size: cover;
-  /* transform: rotate(90deg); */
 }
 
 .head {
-  background-image: url('./snake.png');
-  /* background-color: green; */
+  background-image: url('./img/snake.png');
+  background-color: #529d26;
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
@@ -122,28 +141,27 @@ margin-bottom: 10px;
 }
 .wraper {
   display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-width: 55%;
-height: 15vh;
-justify-content: center;
-align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90vw;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
 }
-.info > h3 {
+.scoreBlock > h3 {
   font-size: 20px;
   font-family: sans-serif;
-  margin: 0 15px;
-  min-width: 140px;
-  padding: 10px 0;
+  margin: 0;
 
 }
-.info > h3:first-child, .info > h3:last-child {
-  margin-left: 0;
+
+.speedBlock > h3 {
+  cursor: pointer;
+  margin: 0;
+  text-align: center;
 }
-.info > h3:last-child {
-  min-width: 150px;
-}
-.info > h3:last-child:hover {
+.speedBlock > h3:last-child:hover {
   cursor: pointer;
 
 }
@@ -151,7 +169,6 @@ align-items: center;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 71%;
   height: auto;
   min-height: 120px;
 }
@@ -174,9 +191,3 @@ align-items: center;
   cursor: pointer;
   background-color: #1f6f8c;
 }
-
-/* .head::before {
-  content: '🐍';
-  font-size: 35px;
-  position: absolute;
-} */

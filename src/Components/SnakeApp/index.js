@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SnakeGame from './ReactKobra';
 import InfoTable from './InfoTable';
 import '../../App.css';
-import './style.css';
+import './style.scss';
 
 export default class Snake extends Component {
   constructor(props){
@@ -12,8 +12,11 @@ export default class Snake extends Component {
       maxScore: 0,
       gameOver: true,
       speed: 900,
-      start: false
-
+      baseSpeed: 900,
+      start: false,
+      boost: '1',
+      boostCount: 3,
+      timeBoost: 5
     }
   }
   isGameOver = (bool) => {
@@ -34,93 +37,82 @@ export default class Snake extends Component {
         score: score
       })
   }
+  updateBoost = (boost) => {
+    return this.setState({
+      boost: boost
+    })
+  }
   changeSpeed = (speed)=> {
     return this.setState({
       speed: speed
     })
   }
-  updatePlaying = (start) => {
+  updateCount = (count) => {
+    return this.setState({
+      boostCount: count
+    })
+  }
+  updateStart = (start) => {
     return this.setState({
       start: start,
     })
   }
-  render(){
-    const {score, maxScore, gameOver, speed, start} = this.state;
-    return (
+  updateBaseSpeed = (baseSpeed) => {
+    return this.setState({
+      baseSpeed: baseSpeed
+    })
+  }
+  updateTimeBoost = (timeBoost) => {
+    return this.setState({
+      timeBoost: timeBoost
+    })
 
-      <div id='snakeWrap'>
-          <SnakeGame
-            score={this.updateScore}
-            gameOver = {this.isGameOver}
-            maxScore={this.isMaxScore}
-            start = {gameOver}
-            playing = {this.updatePlaying}
-            speed = {speed}>
-          </SnakeGame>
-          <InfoTable
-            score={score}
-            maxScore={maxScore}
-            gameOver = {this.isGameOver}
-            speed = {speed}
-            start = {start}
-            changeSpeed = {this.changeSpeed}>
-          </InfoTable>
-      </div>
-    )
+  }
+  componentDidMount = () => {
 
   }
 
+  componentWillUnmount = () => {
+    clearInterval(SnakeGame.gameStart)
+    return
 
+
+  }
+  render(){
+    const {score, _isMounted, maxScore, gameOver, speed, start, boost, boostCount, baseSpeed, timeBoost} = this.state;
+    return (
+      <div id='snakeWrap' className="SnakeApp">
+          <InfoTable
+            isGameOver = {this.isGameOver}
+            changeSpeed = {this.changeSpeed}
+            updateBaseSpeed = {this.updateBaseSpeed}
+            score = {score}
+            speed = {speed}
+            start = {start}
+            boost = {boost}
+            maxScore = {maxScore}
+            baseSpeed = {baseSpeed}
+            boostCount = {boostCount}
+            timeBoost = {timeBoost}>
+          </InfoTable>
+          <SnakeGame
+            isMaxScore = {this.isMaxScore}
+            isGameOver = {this.isGameOver}
+            changeSpeed = {this.changeSpeed}
+            updateScore = {this.updateScore}
+            updateCount = {this.updateCount}
+            updateStart = {this.updateStart}
+            updateBoost = {this.updateBoost}
+            updateTimeBoost = {this.updateTimeBoost}
+            boost = {boost}
+            start = {start}
+            speed = {speed}
+            gameOver = {gameOver}
+            baseSpeed = {baseSpeed}
+            timeBoost = {timeBoost}
+            boostCount = {boostCount}>
+          </SnakeGame>
+      </div>
+    )
+  }
 }
-
-//
-// {
-//   gameOver
-//   ? (
-//     <div>
-//       <h1>Game Over! Score: {snake.body.length + 1}</h1>
-//       <button onClick={this.startAgain} id='startAgain'>Play Again</button>
-//     </div>
-//   )
-//   : <div>
-//       <div id='buttons'>
-//         <button onClick={this.startAgain} id='start'>Start the game</button>
-//         <div className='mode'>
-//           Change mode
-//           <button  id='easy'>Easy</button>
-//           <button  id='medium'>Medium</button>
-//           <button  id='hard'>Hard</button>
-//         </div>
-//
-//       </div>
-//
-//       <section id='grid'>
-//             {
-//               this.state.grid.map( row => (
-//                 row.map( cell => (
-//                   <div
-//                     key={`${cell.row} ${cell.col}`}
-//                     className={`cell ${
-//                       this.isSnake(cell)
-//                       ?'head':this.isApple(cell)
-//                       ? 'apple' : this.isTail(cell)
-//                       ? 'tail' : ''
-//                     }`}>
-//                   </div>
-//                 ))
-//               ))
-//             }
-//
-//         </section>
-//
-//
-//     </div>
-// }
-
-/*
-<div id="info block">
-    <h3>Mode: {this.state.mode}</h3>
-    <h3>Score: <span>{snake.body.length + 1}</span></h3>
-
-</div>
-*/

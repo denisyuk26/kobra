@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {Link} from 'react-router-dom'
 
-export const arr = ['Home', 'About', 'Contacts'];
+export const arr = ['Home', 'Game'];
 let i = 1;
 export default function MenuItems () {
     const item = arr.map(item=>
       <li key={i++} className='menu-item'>
-        <a href={item}>{item}</a>
+        <Link to={`${item}`}>{item}</Link>
       </li>
     );
       return (<ul>{item}</ul>)
