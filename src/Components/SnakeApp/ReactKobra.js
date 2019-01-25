@@ -119,6 +119,7 @@ export default class SnakeGame extends Component {
         this.props.updateTimeBoost(time-1)
       }, 1000)
       if(!this.state.isPressed) {
+
         return interval
       }
 
@@ -134,11 +135,11 @@ export default class SnakeGame extends Component {
     return
   }
   updBoost = () => {
-    if(this.appleEat() && this.props.boost === '0') {
+    if((this.appleEat() && this.props.boost === '0') && !this.state.isPressed) {
       this.props.updateCount(this.props.boostCount - 1)
       return
     }
-    if( this.props.boostCount === 0 && this.props.boost === '1') {
+    if( this.props.boostCount === 0) {
         this.props.updateCount(3)
         this.props.updateTimeBoost(5)
        return this.props.updateBoost('1');
