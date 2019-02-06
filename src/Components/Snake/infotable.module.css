@@ -92,6 +92,7 @@
 
 .apple {
   width: 30px;
+  height: 30px;
   background-image: url("./img/apple.png");
   background-position: bottom;
   background-size: cover;
