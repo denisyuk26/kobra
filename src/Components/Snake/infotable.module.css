@@ -127,6 +127,7 @@ select.speed_name[disabled]:hover {
 }
 
 select.speed_name {
+  font-family: monospace;
   transition: 0.3s background-color ease;
   background-color: #253e30;
   text-align: center;
