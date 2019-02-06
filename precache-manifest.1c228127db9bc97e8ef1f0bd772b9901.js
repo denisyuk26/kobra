@@ -24,19 +24,19 @@ self.__precacheManifest = [
     "url": "/kobra/static/js/runtime~main.f23f8b9c.js"
   },
   {
-    "revision": "f1af538291433158fd4e",
-    "url": "/kobra/static/js/main.f1af5382.chunk.js"
+    "revision": "6fdae1ef19f0d3cb2d85",
+    "url": "/kobra/static/js/main.6fdae1ef.chunk.js"
   },
   {
-    "revision": "6eef3ff0b3475a1017b3",
-    "url": "/kobra/static/js/1.6eef3ff0.chunk.js"
+    "revision": "468eaea3cfaaf966f2d4",
+    "url": "/kobra/static/js/1.468eaea3.chunk.js"
   },
   {
-    "revision": "f1af538291433158fd4e",
-    "url": "/kobra/static/css/main.4dd5724d.chunk.css"
+    "revision": "6fdae1ef19f0d3cb2d85",
+    "url": "/kobra/static/css/main.1144e731.chunk.css"
   },
   {
-    "revision": "865ca84dd538f16be8cfb5ac3863a9c6",
+    "revision": "7e4cb585e0c73a480b96549e9859f6a6",
     "url": "/kobra/index.html"
   }
 ];
