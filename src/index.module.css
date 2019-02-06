@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   padding: 0;
@@ -11,4 +12,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+#template {
+  background: #253e30;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
 }

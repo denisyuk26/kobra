@@ -1,0 +1,13 @@
+#snake_app_container {
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: minmax(100px, 26vw) minmax(100px, 800px);
+  grid-auto-columns: minmax(0, 300px) minmax(0, 500px);
+  grid-auto-rows: minmax(75.1vh, auto);
+}
+
+main {
+  background-color: #253e30;
+}
+
+

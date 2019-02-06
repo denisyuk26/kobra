@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
-import MenuItems from './MenuItems.js';
-// import Snake from '../SnakeApp'
-
-import '../../App.css';
+import React, { Component } from "react";
+import MenuItems from "./MenuItems.js";
+import styles from "./header.module.css";
 
 class Header extends Component {
   render() {
     return (
       <div>
-        <header className="App-header">
-            <MenuItems />
+        <header className={styles.app_header}>
+          <MenuItems />
         </header>
       </div>
     );
