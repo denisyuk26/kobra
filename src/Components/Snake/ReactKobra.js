@@ -39,6 +39,8 @@ export default class ReactKobra extends Component {
     document.addEventListener("keydown", e => {
       this.setDirection(e);
       this.initBoostSpeed(e);
+      this.moveSnakeHead(e);
+      this.moveSnakeBody(e);
     });
   }
 
@@ -188,6 +190,47 @@ export default class ReactKobra extends Component {
       }
     );
   };
+  moveSnakeHead = e => {
+    const {snake} = this.state;
+    if(snake.direction.y === -1 ) {
+      
+      return styles.move_up
+    }
+    else if(snake.direction.x === 1 ){
+      return styles.move_right
+
+    }
+    else if(snake.direction.y === 1 ) {
+      return styles.move_down
+
+    }
+    else if(snake.direction.x === -1 ) {
+      return styles.move_left
+
+    }
+  }
+  moveSnakeBody = e => {
+    const {snake} = this.state;
+    if(snake.body.length !== 0) {
+      if(snake.direction.y === -1 && (snake.head.col === snake.body[0].col) ) {
+      
+        return styles.move_body_up
+      }
+      else if(snake.direction.x === 1 && snake.head.row === snake.body[0].row){
+        return styles.move_body_right
+  
+      }
+      else if(snake.direction.y === 1 && snake.head.col === snake.body[0].col) {
+        return styles.move_body_down
+  
+      }
+      else if(snake.direction.x === -1 && snake.head.row === snake.body[0].row) {
+        return styles.move_body_left
+  
+      }
+    }
+
+  }
 
   setDirection = e => {
     const { snake } = this.state;
@@ -285,23 +328,6 @@ export default class ReactKobra extends Component {
   appleEat() check apple.row and apple.col with snake.head coordinates)
   */
 
-  getAppleOnField = () => {
-    const { snake } = this.state;
-    const newApple = {
-      row: Math.floor(Math.random() * 19),
-      col: Math.floor(Math.random() * 19)
-    };
-    if (
-      this.isSnakeBody(this.state.apple) ||
-      (snake.head.row === this.state.apple.row &&
-        snake.head.col === this.state.apple.col)
-    ) {
-      return this.getAppleOnField();
-    }
-    return this.setState({
-      apple: newApple
-    });
-  };
 
   isApple = cell => {
     const { apple } = this.state;
@@ -322,7 +348,7 @@ export default class ReactKobra extends Component {
   isSnakeHead = cell => {
     const { snake } = this.state;
     return cell.row === snake.head.row && cell.col === snake.head.col
-      ? [styles.snake, styles.head]
+      ? `${styles.snake}, ${styles.head}`
       : "";
   };
 
@@ -341,11 +367,11 @@ export default class ReactKobra extends Component {
           key={`${cell.row} ${cell.col}`}
           className={`${styles.cell} ${
             this.isSnakeHead(cell)
-              ? styles.head
+              ? `${styles.head} ${this.moveSnakeHead()}`
               : this.isApple(cell)
               ? styles.apple
               : this.isSnakeBody(cell)
-              ? styles.tail
+              ? `${styles.body} ${this.moveSnakeBody()}`
               : ""
           }`}
         />
@@ -369,6 +395,7 @@ export default class ReactKobra extends Component {
       <div id={styles.snake} tabIndex="0" onKeyPress={this.setDirection}>
         <section id={styles.grid}>{this.createGridForSnake()}</section>
         <div>{this.props.gameOver ? this.showModalWindow() : null}</div>
+       
       </div>
     );
   }

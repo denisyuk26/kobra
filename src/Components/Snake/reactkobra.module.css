@@ -51,7 +51,7 @@
 }
 
 .head,
-.tail,
+.body,
 .apple {
   background-color: #529d26;
   background-position: bottom;
@@ -60,11 +60,39 @@
 }
 
 .head {
+  transform: rotate(270deg);
   background-image: url("./img/snake.png");
 }
+.move {  
+  &_rigth {    
+    transform: rotate(270deg);
+  }
+  &_left {
+    transform: rotate(90deg);
+  }
+  &_down {
+    transform: rotate(0deg);
+  }
+  &_up {
+    transform: rotate(180deg);
+  }
+  &_body_right {
+    transform: rotate(270deg);
+  }
+  &_body_left {
+    transform: rotate(90deg);
+  }
+  &_body_down {
+    transform: rotate(180deg);
+  }
+  &_body_up {
+    transform: rotate(180deg);
+  }
+}
 
-.tail {
+.body {
   background-image: url("./img/tail.png");
+  
 }
 
 .apple {
