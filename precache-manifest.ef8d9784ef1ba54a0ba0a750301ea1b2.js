@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "2a9daedd9335416e2d70f90ded0f3351",
-    "url": "/kobra/static/media/snake.2a9daedd.png"
+    "revision": "87225b8cda8714ced861019a6c4bf3a2",
+    "url": "/kobra/static/media/snake.87225b8c.png"
   },
   {
     "revision": "586b0ce6ea1f11588f13f381b027fe7c",
@@ -24,19 +24,19 @@ self.__precacheManifest = [
     "url": "/kobra/static/js/runtime~main.f23f8b9c.js"
   },
   {
-    "revision": "16cec61b57e5d9a5681f",
-    "url": "/kobra/static/js/main.16cec61b.chunk.js"
+    "revision": "e1034407dfab2a5c726b",
+    "url": "/kobra/static/js/main.e1034407.chunk.js"
   },
   {
-    "revision": "046338e7c4477906cba9",
-    "url": "/kobra/static/js/1.046338e7.chunk.js"
+    "revision": "ca936d11ccde23bc563e",
+    "url": "/kobra/static/js/1.ca936d11.chunk.js"
   },
   {
-    "revision": "16cec61b57e5d9a5681f",
-    "url": "/kobra/static/css/main.332d4845.chunk.css"
+    "revision": "e1034407dfab2a5c726b",
+    "url": "/kobra/static/css/main.8e17afe1.chunk.css"
   },
   {
-    "revision": "15216d39438633593a27b5e8e65a0f9e",
+    "revision": "9686e445219a3c5b3c4166df95581675",
     "url": "/kobra/index.html"
   }
 ];
