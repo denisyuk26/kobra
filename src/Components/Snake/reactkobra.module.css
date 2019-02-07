@@ -50,26 +50,23 @@
   margin: -2px 0px;
 }
 
-.head {
-  background-image: url("./img/snake.png");
+.head,
+.tail,
+.apple {
   background-color: #529d26;
   background-position: bottom;
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.head {
+  background-image: url("./img/snake.png");
 }
 
 .tail {
   background-image: url("./img/tail.png");
-  background-color: #529d26;
-  background-position: bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
 .apple {
   background-image: url("./img/apple.png");
-  background-color: #529d26;
-  background-position: bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
 }

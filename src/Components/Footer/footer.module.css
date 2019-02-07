@@ -1,11 +1,10 @@
 footer {
-    background-color: #253e30;
-        min-height: 11.5vh;
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: sticky;
-        bottom: 0;
-  }
-  
+  background-color: #253e30;
+  min-height: 11.5vh;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  bottom: 0;
+}

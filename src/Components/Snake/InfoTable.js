@@ -91,10 +91,7 @@ export default class InfoTable extends Component {
             <div className={styles.space} />
           )}
         </div>
-        <div 
-        onClick={this.updateSpeed} 
-        className={styles.speed_container}
-        >
+        <div onClick={this.updateSpeed} className={styles.speed_container}>
           <div className={styles.speed} />
           {this.renderSpeedOptions()}
         </div>
