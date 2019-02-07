@@ -39,8 +39,6 @@ export default class ReactKobra extends Component {
     document.addEventListener("keydown", e => {
       this.setDirection(e);
       this.initBoostSpeed(e);
-      this.moveSnakeHead(e);
-      this.moveSnakeBody(e);
     });
   }
 
@@ -190,47 +188,41 @@ export default class ReactKobra extends Component {
       }
     );
   };
-  moveSnakeHead = e => {
-    const {snake} = this.state;
-    if(snake.direction.y === -1 ) {
-      
-      return styles.move_up
+  moveSnakeHead = () => {
+    const { snake } = this.state;
+    if (snake.direction.y === -1) {
+      return styles.move_up;
+    } else if (snake.direction.x === 1) {
+      return styles.move_right;
+    } else if (snake.direction.y === 1) {
+      return styles.move_down;
+    } else if (snake.direction.x === -1) {
+      return styles.move_left;
     }
-    else if(snake.direction.x === 1 ){
-      return styles.move_right
-
-    }
-    else if(snake.direction.y === 1 ) {
-      return styles.move_down
-
-    }
-    else if(snake.direction.x === -1 ) {
-      return styles.move_left
-
-    }
-  }
-  moveSnakeBody = e => {
-    const {snake} = this.state;
-    if(snake.body.length !== 0) {
-      if(snake.direction.y === -1 && (snake.head.col === snake.body[0].col) ) {
-      
-        return styles.move_body_up
-      }
-      else if(snake.direction.x === 1 && snake.head.row === snake.body[0].row){
-        return styles.move_body_right
-  
-      }
-      else if(snake.direction.y === 1 && snake.head.col === snake.body[0].col) {
-        return styles.move_body_down
-  
-      }
-      else if(snake.direction.x === -1 && snake.head.row === snake.body[0].row) {
-        return styles.move_body_left
-  
+  };
+  moveSnakeBody = () => {
+    const { snake } = this.state;
+    if (snake.body.length !== 0) {
+      if (snake.direction.y === -1 && snake.head.col === snake.body[0].col) {
+        return styles.move_body_up;
+      } else if (
+        snake.direction.x === 1 &&
+        snake.head.row === snake.body[0].row
+      ) {
+        return styles.move_body_right;
+      } else if (
+        snake.direction.y === 1 &&
+        snake.head.col === snake.body[0].col
+      ) {
+        return styles.move_body_down;
+      } else if (
+        snake.direction.x === -1 &&
+        snake.head.row === snake.body[0].row
+      ) {
+        return styles.move_body_left;
       }
     }
-
-  }
+  };
 
   setDirection = e => {
     const { snake } = this.state;
@@ -328,7 +320,6 @@ export default class ReactKobra extends Component {
   appleEat() check apple.row and apple.col with snake.head coordinates)
   */
 
-
   isApple = cell => {
     const { apple } = this.state;
     return cell.row === apple.row && cell.col === apple.col ? styles.apple : "";
@@ -395,7 +386,6 @@ export default class ReactKobra extends Component {
       <div id={styles.snake} tabIndex="0" onKeyPress={this.setDirection}>
         <section id={styles.grid}>{this.createGridForSnake()}</section>
         <div>{this.props.gameOver ? this.showModalWindow() : null}</div>
-       
       </div>
     );
   }
