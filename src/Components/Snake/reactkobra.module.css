@@ -25,6 +25,10 @@
   background-color: #253e30;
   color: #ffffff;
   transition: all ease 0.5s;
+  &:hover {
+    cursor: pointer;
+    background-color: #1f6f8c;
+  }
 }
 
 .modal {
@@ -68,10 +72,4 @@
   background-position: bottom;
   background-size: contain;
   background-repeat: no-repeat;
-}
-
-#start:hover,
-#startAgain:hover {
-  cursor: pointer;
-  background-color: #1f6f8c;
 }

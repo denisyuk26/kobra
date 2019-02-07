@@ -43,8 +43,32 @@ export default class ReactKobra extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    const {snake, apple} = this.state;
+    const eat = apple.row === snake.head.row && apple.col === snake.head.col;
     if (prevProps.gameStarted === !this.props.gameStarted) {
       this.startGame();
+    }
+    //this condition help us to know when snake eat apple, then re-render apple immediately
+    if(eat) {
+      this.setState(
+           {
+            snake: {
+              ...snake,
+              body: [...snake.body, snake.head ]
+            },
+            apple: this.appleEat()
+              ? {
+                  row: Math.floor(Math.random() * 19),
+                  col: Math.floor(Math.random() * 19)
+                }
+              : apple
+          }
+        );
+    }
+    //update apples count for boost
+    if (eat && !this.props.boost && !this.state.boostKeyIsPressed) {
+      this.props.updateBoostCount(this.props.boostCount - 1);
+     
     }
   }
 
@@ -118,11 +142,7 @@ export default class ReactKobra extends Component {
       }, 5000);
     }
   };
-  updateBoostStatus = () => {
-    if (this.appleEat() && !this.props.boost && !this.state.boostKeyIsPressed) {
-      this.props.updateBoostCount(this.props.boostCount - 1);
-      return;
-    }
+  updateBoostStatus = () => {  
     if (this.props.boostCount === 0) {
       this.props.updateBoostCount(3);
       this.props.updateBoostTime(5);

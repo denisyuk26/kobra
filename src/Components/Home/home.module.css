@@ -5,11 +5,10 @@
   align-items: center;
   justify-content: center;
   background: #253e30;
-}
-
-.greeting p {
-  font-size: 65px;
-  font-weight: 600;
-  text-align: center;
-  color: #fff;
+  p {
+    font-size: 65px;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+  }
 }

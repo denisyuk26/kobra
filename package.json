@@ -19,9 +19,8 @@
     "postcss-preset-env": "^6.5.0"
   },
   "scripts": {
-
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
@@ -35,5 +34,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "react-app-rewire-postcss": "^3.0.2",
+    "react-app-rewired": "^2.1.0"
+  }
 }

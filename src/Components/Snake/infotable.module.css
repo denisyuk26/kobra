@@ -25,6 +25,31 @@
   grid-template-columns: 60px 80px;
   grid-auto-rows: minmax(0, 22px);
   justify-content: end;
+  .speed_name {
+    font-family: monospace;
+    transition: 0.3s background-color ease;
+    background-color: #253e30;
+    text-align: center;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 17px;
+    option {
+      outline: none;
+      border: none;
+      border-radius: 7px;
+      background-color: #253e30;
+      color: #ffffff;
+    }
+    &:hover {
+      background-color: #1f6f8c;
+    }
+    &[disabled]:hover {
+      background-color: #253e30;
+    }
+  }
 }
 
 .info_value {
@@ -116,33 +141,4 @@
   background-position-y: 1.7px;
   transition: background-color 0.4s ease;
   border-radius: 7px;
-}
-
-select.speed_name:hover {
-  background-color: #1f6f8c;
-}
-
-select.speed_name[disabled]:hover {
-  background-color: #253e30;
-}
-
-select.speed_name {
-  font-family: monospace;
-  transition: 0.3s background-color ease;
-  background-color: #253e30;
-  text-align: center;
-  border: none;
-  outline: none;
-  color: #fff;
-  border-radius: 2px;
-  cursor: pointer;
-  font-size: 17px;
-}
-
-select.speed_name option {
-  outline: none;
-  border: none;
-  border-radius: 7px;
-  background-color: #253e30;
-  color: #ffffff;
 }
